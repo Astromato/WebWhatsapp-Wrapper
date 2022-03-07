@@ -615,12 +615,15 @@ def send_message(chat_id):
         res = send_media(chat_id, request)
     else:
         message = request.form.get("message")
-        res = g.driver.chat_send_message(chat_id, message)
-
+        try:
+            res = g.driver.chat_send_message(chat_id, message)
+        except Exception as e:
+            print(e)
+            res = str(e)
     if res:
-        return jsonify(res)
+        return jsonify({"Success": res})
     else:
-        return False
+        return jsonify({"Success": False, "reason": str(res)})
 
 
 @app.route("/messages/<msg_id>/download", methods=["GET"])
