@@ -209,7 +209,7 @@ def init_driver(client_id):
         username=client_id,
         profile=profile_path,
         client="firefox",
-        chrome_options=chrome_options,
+        command_executor=os.environ["SELENIUM"],
     )
 
     return d
