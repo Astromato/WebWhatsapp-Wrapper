@@ -208,7 +208,7 @@ def init_driver(client_id):
     d = WhatsAPIDriver(
         username=client_id,
         profile=profile_path,
-        client="firefox",
+        client="remote",
         command_executor=os.environ["SELENIUM"],
     )
 
