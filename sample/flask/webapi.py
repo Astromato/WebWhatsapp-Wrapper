@@ -208,9 +208,10 @@ def init_driver(client_id):
     d = WhatsAPIDriver(
         username=client_id,
         profile=profile_path,
-        client="chrome",
+        client="firefox",
         chrome_options=chrome_options,
     )
+
     return d
 
 
